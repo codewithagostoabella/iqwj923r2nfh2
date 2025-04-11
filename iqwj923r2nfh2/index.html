@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>John Lester Morelos</title>
+  <link rel="icon" type="image/png" href="https://fbi.cults3d.com/uploaders/26189302/illustration-file/d5a9feae-9374-43fc-a009-38479ce47ef6/flat_750x_075_f-pad_750x1000_f8f8f8-removebg-preview.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  body {
+    background-color: #121212;
+    color: white;
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #00acee;
+  }
+
+  .hero {
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  height: calc(100vh - 80px);
+  padding: 0 40px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.hero img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+  .hero h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 30px;
+  }
+
+  .social-icons a {
+    margin: 0 10px;
+    font-size: 24px;
+    color: white;
+    transition: color 0.3s ease;
+  }
+
+  .social-icons a:hover {
+    color: #00acee;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #333;
+    min-width: 200px;
+    padding: 0;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .dropdown:hover .dropdown-content {
+    transform: translateY(0);
+    opacity: 1;
+    padding: 15px;
+    pointer-events: auto;
+  }
+
+  .dropdown-content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dropdown-content a {
+    color: white;
+  }
+
+  .dropdown-content a:hover {
+    color: #00acee;
+  }
+
+  .custom-button {
+    margin-top: 10px;
+    display: block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #ad6800;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+
+  .custom-button:hover {
+    background-color: #874d00;
+  }
+
+  .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+
+  .fa:hover {
+    opacity: 0.7;
+  }
+
+  .fa-facebook {
+    background: transparent;
+    color: white;
+  }
+
+  .fa-twitter {
+    background: transparent;
+    color: white;
+  }
+
+  .fa-instagram {
+    background: transparent;
+    color: white;
+  }
+
+  .fa-linkedin {
+    background: transparent;
+    color: white;
+  }
+
+  .fa-google {
+    background: transparent;
+    color: white;
+  }
+
+  #aboutme {
+    padding: 60px 20px;
+    background-color: #121212;
+    color: white;
+  }
+
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .about-left,
+  .about-center,
+  .about-right {
+    flex: 1;
+  }
+
+  .about-center img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    display: block;
+    margin: 0 auto;
+  }
+
+  @media(min-width: 900px) {
+    .about-container {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      gap: 40px;
+    }
+
+    .about-left {
+      text-align: right;
+      padding-right: 20px;
+    }
+
+    .about-center {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-right {
+      padding-left: 0;
+    }
+  }
+
+  #skills {
+    padding: 60px 20px;
+    background-color: #121212;
+    color: white;
+    text-align: center;
+  }
+
+  #skills h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .skill-card {
+    background-color: #121212;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 250px;
+  }
+
+  .skill-card:hover {
+    background-color: #00acee;
+    transform: translateY(-5px);
+  }
+
+  .html-card {
+    background-image: url('487778698_1167278911369100_7399151076336356643_n.jpg');
+  }
+
+  .css-card {
+    background-image: url('487784988_1146280840581676_8908700172308220728_n.jpg');
+  }
+
+  .cpp-card {
+    background-image: url('488258917_1012353213681037_3136160147301789807_n.jpg');
+  }
+
+  .project-card {
+  background-color: #1e1e1e;
+  border-radius: 15px;
+  padding: 15px;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+  .project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.project-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.project-links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-links a {
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.project-links a:hover {
+  color: #00bcd4;
+}
+
+#certifications {
+padding: 60px 20px;
+background-color: #121212;
+color: white;
+text-align: center;
+}
+
+.certification-card {
+background-color: #1e1e1e;
+border-radius: 15px;
+padding: 20px;
+width: 280px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+.certification-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.certification-img {
+width: 100%;
+height: 180px;
+object-fit: cover;
+border-radius: 10px;
+margin-bottom: 20px;
+}
+
+.certification-card h3 {
+font-size: 20px;
+margin-bottom: 10px;
+}
+
+.certification-card p {
+font-size: 16px;
+color: #ccc;
+}
+
+#educations {
+padding: 60px 20px;
+background-color: #121212;
+color: white;
+text-align: center;
+}
+
+.education-card {
+background-color: #1e1e1e;
+border-radius: 15px;
+padding: 20px;
+width: 280px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+.education-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.education-card h3 {
+font-size: 20px;
+margin-bottom: 10px;
+}
+
+.education-card p {
+font-size: 16px;
+color: #ccc;
+}
+
+#contact {
+padding: 60px 20px;
+background-color: #121212;
+color: white;
+text-align: center;
+}
+
+#contact h2 {
+font-size: 32px;
+margin-bottom: 30px;
+}
+
+form input,
+form textarea {
+width: 100%;
+padding: 15px;
+margin-bottom: 15px;
+border-radius: 5px;
+border: 1px solid #ccc;
+background-color: #121212;
+color: white;
+}
+
+form button {
+width: 100%;
+padding: 15px;
+font-size: 18px;
+background-color: #ad6800;
+color: white;
+border-radius: 5px;
+cursor: pointer;
+border: none;
+}
+
+form button:hover {
+background-color: #874d00;
+}
+
+#contact h3 {
+font-size: 24px;
+margin-top: 40px;
+}
+
+#contact p {
+font-size: 16px;
+margin-top: 10px;
+}
+
+#contact a {
+color: #00acee;
+text-decoration: none;
+}
+
+#contact a:hover {
+text-decoration: underline;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+      <img src="462568887_1639783496914411_5514389370255938285_n.jpg" alt="Logo" style="height: 40px; width: auto;">
+      <span>JLM</span>
+    </div>  
+    <nav>
+      <ul>
+        <li><a href="#hero">HOME</a></li>
+        <li class="dropdown">
+          <a href="#">MENU</a>
+          <div class="dropdown-content">
+            <ul>
+              <li><a href="#aboutme">About Me</a></li>
+              <li><a href="#skills">Skills & Experience</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#certifications">Certifications</a></li>
+              <li><a href="#educations">Education</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero-text">
+      <h1>WELCOME!</h1>
+      <p>I'm John Lester D. Morelos, 19 years old,<br>
+      First year College Student who wants to become a programmer.</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/johnlester.morelos.77" class="fa fa-facebook" alt="Facebook"></a>
+        <a href="https://www.instagram.com/morelosjohnlester/" class="fa fa-instagram" alt="Instagram"></a>
+        <a href="mailto:jdmorelos0373qc@student.fatima.edu.ph" class="fa fa-google" alt="Gmail"></a>
+      </div>
+    </div>
+    <img src="profile.jpg" alt="Logo">
+  </section>
+  
+  
+
+  <section id="aboutme">
+    <div class="about-container">
+      <div class="about-left">
+        <h2>Hi! I'm John Lester Morelos</h2>
+        Beta Tester / Mobile Developer / Front End Developer
+      </div>
+      <div class="about-center">
+        <img src="profile.jpg" alt="John Lester Morelos">
+      </div>
+      <div class="about-right">
+        <h3>About Me</h3>
+        <p>I thrive on the challenge of solving complex problems and optimizing game mechanics to deliver a seamless player experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skill & Experience</h2>
+    <p>my main area of expertise is game testing and web development.</p>
+    <div class="skills-container">
+      <div class="skill-card html-card">
+        <p>HTML</p>
+      </div>
+      <div class="skill-card css-card">
+        <p>CSS</p>
+      </div>
+      <div class="skill-card cpp-card">
+        <p>C++</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" style="padding: 60px 20px; background-color: #121212; color: white;">
+    <h2 style="text-align: center; font-size: 32px; margin-bottom: 30px;">PROJECTS</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+  
+      <div class="project-card">
+        <img src="project11.png" alt="E-commerce Website" class="project-img">
+        <h3>E-commerce Website</h3>
+        <p>Currently developing a dynamic and user-friendly e-commerce platform with smooth navigation and secure checkout features.</p>
+        <div class="project-links">
+          <a href="#" class="fa fa-code"></a>
+        </div>
+      </div>
+  
+      <div class="project-card">
+        <img src="project3.png" alt="Retro Arcade Website" class="project-img">
+        <h3>Retro Arcade Website</h3>
+        <p>Relive the golden age of gaming with Retro Arcade, the ultimate destination for retro arcade fans! Explore classic 8-bit and pixelated adventures, chase high scores, and connect with a community that cherishes arcade nostalgia. Ready to play? - Made with HTML/CSS.</p>
+        <div class="project-links">
+          <a href="#" class="fa fa-code"></a>
+        </div>
+      </div>
+  
+      <div class="project-card">
+        <img src="image.png" alt="Student Grade Calxulator (C++)" class="project-img">
+        <h3>Student Grade Calculator (C++)</h3>
+        <p> It demonstrates basic input/output handling, use of arrays, loops, and conditional statements in C++.
+        </p>
+        <div class="project-links">
+          <a href="project3.html" class="fa fa-code"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications" style="padding: 60px 20px; background-color: #121212; color: white;">
+    <h2 style="text-align: center; font-size: 32px; margin-bottom: 30px;">Certifications</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+    
+      <div class="certification-card">
+        <img src="John Lester D. Morelos.png" alt="Certification 1" class="certification-img">
+        <h3>CCS: Code, Create, Succeed Empowering the Digital Innovators of Tomorrow</h3>
+        <p>in participating seminar entitled: "CCS: Code, Create, Succeed Empowering the Digital Innovators of Tomorrow" during the CCS Week held on October 30, 2024.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section id="educations" style="padding: 60px 20px; background-color: #121212; color: white;">
+    <h2 style="text-align: center; font-size: 32px; margin-bottom: 30px;">Education</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">  
+      <div class="education-card">
+        <h3>Bagbaguin National HighSchool</h3>
+        <p>Highschool</p>
+        <p>Year of Graduation: 2022</p>
+      </div>
+    
+      <div class="education-card">
+        <h3>Our Lady of Fatima University</h3>
+        <p>Senior Highschool | STEM</p>6
+        <p>Year of Graduation: 2024</p>
+      </div>
+    
+      <div class="education-card">
+        <h3>Our Lady of Fatima University</h3>
+        <p>Bachelor of Science in Information Technology</p>
+        <p>Year of Graduation: 2028</p>
+      </div>
+    </div>
+  </section>
+  
+  <section id="contact" style="padding: 60px 20px; background-color: #121212; color: white;">
+    <h2 style="text-align: center; font-size: 32px; margin-bottom: 30px;">Get in Touch</h2>
+    
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+      <form action="#" method="POST" style="width: 100%; max-width: 600px; background-color: #1e1e1e; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
+        <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc; background-color: #121212; color: white;">
+        <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc; background-color: #121212; color: white;">
+        <textarea name="message" placeholder="Your Message" rows="5" required style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid #ccc; background-color: #121212; color: white;"></textarea>
+        <button type="submit" class="custom-button" style="width: 100%; margin-top: 20px; padding: 15px; font-size: 18px; background-color: #ad6800; color: white; border-radius: 5px; cursor: pointer; border: none;">
+        <i class="fa fa-envelope" style="margin-right: 10px;"></i> Send Message</button>        
+      </form>
+    </div>
+  
+    <div style="text-align: center; margin-top: 40px;">
+      <h3>Contact Info</h3>
+      <p>Email: <a href="mailto:jdmorelos0373qc@student.fatima.edu.ph" style="color: #00acee;">jdmorelos0373qc@student.fatima.edu.ph</a></p>
+      <p>Phone: <a href="tel:09384828964" style="color: #00acee;">+63 938 482 8964</a></p>
+      <p>Address: B-3 YAP Apaartment Enriquez St. Sitio Gitna Brgy. Nagkaisang Nayon Quezon City, Philippines</p>
+    </div>
+  </section>
+</body>
+</html>
